@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <title>Čtenost knih (JS)</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>Statistika čtenosti knih</h1>
+      <p>Jen client-side JS řešení s ukládáním dat jen v prohlížeči.</p>
+    </header>
+    <main>
+      <form id="form">
+        <label for="age">Věk [roky]</label>
+        <input id="age" type="number" min="1" max="120" step="1" required />
+        <label for="books">Počet přečtených knih [kusy]</label>
+        <input id="books" type="number" min="1" max="999" step="1" required />
+        <p></p>
+        <button class="btn">Odeslat informace</button>
+      </form>
+      <article>
+        <h2>Přehled celkově přečtených knih</h2>
+        <table id="table"></table>
+      </article>
+      <script src="script.js"></script>
+    </main>
+    <footer>
+      <p>2021 Michal Bubílek, VOŠ, SPŠ a SOŠ Varnsdorf</p>
+    </footer>
+  </body>
+</html>
