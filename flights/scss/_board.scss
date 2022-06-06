@@ -1,0 +1,41 @@
+table.board {
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  text-transform: uppercase;
+  caption {
+    font-size: 4em;
+    padding: 0.25em 0.25em;
+    text-align: left;
+    border: 2px solid #555;
+    border-bottom: none;
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      svg {
+        width: 1.5em;
+        path {
+          fill: white;
+        }
+      }
+    }
+  }
+  tbody > tr:nth-child(2n + 1) {
+    background: #2a2a2a;
+  }
+  th,
+  td {
+    text-align: left;
+    border: 2px solid #555;
+    padding: 0.1em 0.2em;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  }
+  th {
+    font-size: 2em;
+  }
+  td {
+    font-size: 3em;
+  }
+}
