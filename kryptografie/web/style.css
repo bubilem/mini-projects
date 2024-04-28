@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    background-color: #aaa;
+    color: #333;
+}
+
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header, footer, main{
+    padding: 2em 1em;
+}
+header, footer{
+    background-color: #bbb;
+}
+h1{
+    font-size: 2em;
+    margin: 1em 0;
+}
+h2{
+    font-size: 1.5em;
+    margin: 1em 0;
+}
+
+.group{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1em;    
+}
+.group section{
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 0.5em;       
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+button{
+    padding: 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #666;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #333;
+}
+textarea, .output{
+    padding: 1em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    background: #ccc;
+    resize: none;
+    height: 10em;
+}
+
+textarea{
+    background: #fff;
+}

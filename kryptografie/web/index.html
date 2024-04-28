@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Šifrování</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="content">
+        <h1>Jednoduché šifrování</h1>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <div class="group">
+          <section>
+            <h2>Šifra vše pozpátku</h2>
+            <p>
+              Transpoziční šifra <b>vše pozpátku</b> funguje tak, že celý text
+              je napsán pozpátku. Například věta "abc def" je napsána jako "fed
+              cba".
+            </p>
+            <textarea id="input_1">abc def</textarea>
+            <button id="button_1">Šifrovat</button>
+            <div class="output" id="output_1"></div>
+          </section>
+          <section>
+            <h2>Šifra slova pozpátku</h2>
+            <p>
+              Transpoziční šifra <b>slova pozpátku</b> funguje tak, že každé
+              slovo je napsáno pozpátku. Například věta "abc def" je napsána
+              jako "cba fed".
+            </p>
+            <textarea id="input_2">abc def</textarea>
+            <button id="button_2">Šifrovat</button>
+            <div class="output" id="output_2"></div>
+          </section>
+          <section>
+            <h2>Caesarova šifra</h2>
+            <p>
+              <b>Caesarova šifra</b> je šifrou substituční. Písmena ve větě jsou
+              postupně každé jedno posunuto v abecedě o tři znaky dopředu
+              (doprava). Například věta "abc def" je napsána jako "def ghic".
+            </p>
+            <textarea id="input_3">abc def</textarea>
+            <button id="button_3">Šifrovat</button>
+            <div class="output" id="output_3"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="content">
+        <p>2024 Varnsdorf, Michal Bubílek</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
