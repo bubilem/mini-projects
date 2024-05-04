@@ -3,10 +3,17 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 --
--- Databáze: `krypto`
+-- Struktura tabulky `message`
 --
 
--- --------------------------------------------------------
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE IF NOT EXISTS `message` (
+  `code` char(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `dttm` datetime NOT NULL,
+  `gps` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `content` text COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Struktura tabulky `attempt`
@@ -24,6 +31,24 @@ CREATE TABLE IF NOT EXISTS `attempt` (
   KEY `FK_message` (`message`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+--
+-- Omezení pro tabulku `attempt`
+--
+
+ALTER TABLE `attempt`
+  ADD CONSTRAINT `FK_message` FOREIGN KEY (`message`) REFERENCES `message` (`code`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Vypisuji data pro tabulku `message`
+--
+
+INSERT INTO `message` (`code`, `dttm`, `gps`, `content`) VALUES
+('2024-B-003', '2024-04-28 14:25:00', '50.91295N, 14.6171E', 'joha'),
+('2024-B-004', '2024-04-28 14:33:00', '50.91295N, 14.6171E', 'Ehlo'),
+('2024-B-005', '2024-04-28 14:39:00', '50.91295N, 14.6171E', 'suhml shnqb ghq');
+
+
 --
 -- Vypisuji data pro tabulku `attempt`
 --
@@ -38,13 +63,4 @@ INSERT INTO `attempt` (`id`, `dttm`, `crypto_analyst`, `duration`, `success`, `m
 (8, '2024-04-28 14:45:34', 'Oto Oto', 10, 0, '2024-B-005'),
 (9, '2024-04-28 14:48:00', 'František Kryptoman', 15, 1, '2024-B-005');
 
---
--- Omezení pro exportované tabulky
---
-
---
--- Omezení pro tabulku `attempt`
---
-ALTER TABLE `attempt`
-  ADD CONSTRAINT `FK_message` FOREIGN KEY (`message`) REFERENCES `message` (`code`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
