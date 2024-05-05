@@ -52,4 +52,5 @@ Pro výše uvedený algoritmus napište program, který bude obsahovat:
 
 ### Řešení
 
-- [Řešení šifrování pomocí mřížky](prg/prg.md)
+- [Řešení šifrování pomocí mřížky v PHP](prg/php/php.md)
+- [Řešení šifrování pomocí mřížky v Pythonu](prg/python/python.md)

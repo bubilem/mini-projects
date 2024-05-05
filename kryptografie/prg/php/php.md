@@ -1,6 +1,9 @@
-# Program
+# Program v PHP
 
-[Zpět na README.md](../README.md)
+Toto je řešení v jazyku **PHP**.
+
+- [Zpět na README.md](../../README.md)
+- [Řešení v jazyku Python](../python/python.md)
 
 ## Řešení
 
@@ -139,3 +142,25 @@ public function encrypt(string $text): string
     return $output;
 }
 ```
+
+## Hlavní program
+
+Kód:
+
+```php
+<?php
+require "Grid.php";
+
+echo $grid = (new Grid)->load("grid4x4.json");
+echo "Validní: " . ($grid->validate() ? "Ano" : "Ne") . "\n";
+
+$text = "Krypto";
+echo $grid->encrypt($text) . "\n";
+
+$text = "Ahoj, jak se tady zakum v cryptodilne vede?";
+echo $grid->encrypt($text) . "\n";
+```
+
+Výstup:
+
+![output](output.png)
