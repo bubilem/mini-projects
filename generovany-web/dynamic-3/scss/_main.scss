@@ -1,0 +1,10 @@
+body > div {
+  margin: 2em 0;
+  padding: 0 2em;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 3fr 1fr;
+  }
+  gap: 2em;
+}

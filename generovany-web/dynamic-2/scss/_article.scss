@@ -1,0 +1,11 @@
+.articles {
+  margin: 1em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+  a {
+    padding: 1em;
+    background: #222;
+    border-radius: 0.5em;
+  }
+}
