@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Chat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="messages"></div>
+      <div class="controls">
+        <div class="control-group">
+          <label for="nameInput">Name</label>
+          <input type="text" id="nameInput" value="" />
+        </div>
+        <div class="control-group">
+          <label for="messInput">Message</label>
+          <input type="text" id="messInput" value="" />
+        </div>
+        <div class="control-group">
+          <button id="sendButton">Send</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="client.js"></script>
+  </body>
+</html>
