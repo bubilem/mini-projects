@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VeriCheck</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 350px;
+            padding: 15px;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 22px;
+            text-align: center;
+            color: #1a237e;
+            margin-top: 0;
+            border-bottom: 3px solid #3f51b5;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            font-size: 15px;
+            margin: 0 0 12px 0;
+            color: #5c6bc0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .status {
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .status.green {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status.yellow {
+            background-color: #fff8e1;
+            color: #f57f17;
+        }
+
+        .status.red {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #616161;
+            margin-top: 2px;
+            margin-bottom: 12px;
+            display: block;
+            line-height: 1.4;
+        }
+
+        .help-text:last-child {
+            margin-bottom: 0;
+        }
+
+        #scorecard {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px;
+            margin-bottom: 15px;
+            color: white;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .loading {
+            text-align: center;
+            font-style: italic;
+            color: #5c6bc0;
+            padding: 20px 0;
+            font-size: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 11px;
+            color: #9e9e9e;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>VeriCheck</h1>
+
+    <div id="loading" class="loading">Skenuji stránku, prosím čekejte...</div>
+
+    <div id="results" style="display: none;">
+        <div id="scorecard">Hodnocení: ZELENÁ</div>
+
+        <div class="section">
+            <h2>Technická integrita</h2>
+            <div class="item">
+                <span>Punycode (Homografy)</span>
+                <span id="punycode-status" class="status">...</span>
+            </div>
+            <span id="punycode-help" class="help-text">Kontrola přítomnosti skrytých znaků v URL.</span>
+
+            <div class="item">
+                <span>Doména (<span id="tld-value">...</span>)</span>
+                <span id="tld-status" class="status">...</span>
+            </div>
+            <span id="tld-help" class="help-text">Ověření důvěryhodnosti koncovky domény.</span>
+
+            <div class="item">
+                <span>Stáří domény</span>
+                <span id="domain-age-status" class="status">...</span>
+            </div>
+            <span id="domain-age-help" class="help-text">Skenování přes RDAP pro detekci narychlo vytvořených
+                webů.</span>
+        </div>
+
+        <div class="section">
+            <h2>Obsahová analýza</h2>
+            <div class="item">
+                <span>Clickbait výrazy</span>
+                <span id="clickbait-status" class="status">...</span>
+            </div>
+            <span id="clickbait-help" class="help-text">Skenování nadpisů na senzacechtivá slova.</span>
+
+            <div class="item">
+                <span>Interpunkce / Kapitálky</span>
+                <span id="punct-status" class="status">...</span>
+            </div>
+            <span id="punct-help" class="help-text">Analýza použití vykřičníků a velkých písmen.</span>
+
+            <div class="item">
+                <span>Identita autora</span>
+                <span id="author-status" class="status">...</span>
+            </div>
+            <span id="author-help" class="help-text">Kontrola uvedení autora v metadatech stránky.</span>
+        </div>
+
+        <div class="section">
+            <h2>Transparentnost a vazby</h2>
+            <div class="item">
+                <span>Patička a kontakty</span>
+                <span id="contact-status" class="status">...</span>
+            </div>
+            <span id="contact-help" class="help-text">Ověření dostupnosti vydavatele a redakce.</span>
+
+            <div class="item">
+                <span>Externí odkazy (<span id="links-value">...</span>)</span>
+                <span id="links-status" class="status">...</span>
+            </div>
+            <span id="links-help" class="help-text">Analýza propojenosti webu s okolním internetem.</span>
+        </div>
+    </div>
+
+    <div class="footer">Studentský projekt VeriCheck &copy; 2026</div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
